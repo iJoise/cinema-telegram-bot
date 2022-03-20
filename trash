@@ -1,0 +1,55 @@
+//игра - есть два стула
+
+ if (greetings.includes(msg.text.toLowerCase()) || msg.text === '/start') {
+      bot.sendMessage(id, `Здарова заебал, ${msg.from.first_name} 🕺🏿!!!`);
+      bot.sendMessage(id, `Есть два стула...`, {
+         reply_markup: {
+            keyboard: [
+               ['♠️ пики точёные', '🍌 хуи дрочёные'],
+               ['🤪 хз я ебалан'],
+            ]
+         }
+      });
+   }
+   if (msg.text === '♠️ пики точёные') {
+      bot.sendVideo(id, 'BAACAgIAAxkBAAN6Yjc-01Kjfq6_WGTORjR84CRSbZ4AAvwXAAL-cMFJ64GnCKkix4AjBA')
+   }
+   if (msg.text === '🤪 хз я ебалан') {
+      bot.sendVideo(id, 'BAACAgIAAxkBAAN0Yjc-uG-13EbV_oWF9eA_qRxwDcEAAvoXAAL-cMFJZ50oU9txvBkjBA')
+   }
+   if (msg.text === '🍌 хуи дрочёные') {
+      bot.sendVideo(id, 'BAACAgIAAxkBAAOXYjdCmYypuEvgf9-JaguCeGz7X3YAAgoYAAL-cMFJlWdpZtl4TE0jBA')
+   }
+
+//тест клавиатуры
+
+  if (text === 'Закрыть') {
+      bot.sendMessage(chatId, 'Закрываю клавиатуру', {
+         reply_markup: {
+            remove_keyboard: true,
+         }
+      })
+   } else if (text === 'Ответить') {
+      bot.sendMessage(chatId, 'Отвечаю', {
+         reply_markup: {
+            force_reply: true,
+         }
+      })
+   } else {
+      bot.sendMessage(chatId, 'Клавиатура', {
+         reply_markup: {
+            keyboard: [
+               [{
+                  text: 'Отправить местоположение',
+                  request_location: true,
+               }],
+               ['Ответить', 'Закрыть'],
+               [{
+                  text: 'Отправить контакт',
+                  request_contact: true,
+               }]
+            ],
+            one_time_keyboard: true
+         }
+      })
+   }
